@@ -15,6 +15,7 @@ function updateTimer() {
 }
 
 function startTimer() {
+    if (interval) return;
     interval = setInterval( ()=> {
         timeLeft--;
         updateTimer();
@@ -28,9 +29,11 @@ function startTimer() {
 }
 function stopTimer() {
     clearInterval(interval);
+    interval = null;
 }
 function resetTimer() {
     clearInterval(interval);
+    interval = null;
     timeLeft = 1500;
     updateTimer();
 }
